@@ -9,7 +9,7 @@ const YouTube = require('simple-youtube-api');
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const queue = new Map();
 const UserBlocked = new Set();
-const prefix = '*M'
+const prefix = '-'
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
@@ -43,45 +43,9 @@ client.on('ready', () => {
 
 //-----
 
-client.on('message' , message => {
- 
-    if (message.content === "*Minvite") {
-        message.reply(`تم ارساله الرابط في الخاص`)
-        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
-     const embed = new Discord.RichEmbed()
- .setColor("RANDOM")
- .setThumbnail(client.user.avatarURL)    
- .setDescription("دعوة اضافة البوت" + `
- **
-رابط البوت |
-http://cutt.us/GMZNMusicDiscord
- **
-`);
-  message.author.sendEmbed(embed);
-   }
-});
 
 //---
 
-client.on('ready', function(){
-    var ms = 7000;
-    var setGame = [`©GMZN Host`,'©GMZN Host','©جمزن هوست','Say : *Mhelp || *Minvite'];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i]);
-    }, ms);1700
- 
- 
- 
-})
 
 
 //----
@@ -95,22 +59,22 @@ client.on('message', message => {
  .addField("**Server: **" , client.guilds.size)
  message.channel.sendEmbed(embed);
    }
-if (message.content === '*Mhelp') {    
+if (message.content === '-help') {    
          const embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)    
-.addField('** *Mplay <name>** ' , '**لتشغيل المسيقى **')
+.addField('** -play <name>** ' , '**لتشغيل المسيقى **')
  
-.addField('** *Mstop** ' , '**لتوقف المسيقى **')
+.addField('** -stop** ' , '**لتوقف المسيقى **')
  
-.addField('** *Mskip** ' , '**لتخطي الاغنية **')
+.addField('** -skip** ' , '**لتخطي الاغنية **')
  
-.addField('** *Mvol <number>** ' , '**لتغيير الصوت **')
+.addField('** -vol <number>** ' , '**لتغيير الصوت **')
  
-.addField('** *Mpause** ' , '**ايقاف بشكل موقت **')
+.addField('** -pause** ' , '**ايقاف بشكل موقت **')
  
-.addField('** *Mresume** ' , '**استمرار الموسيقى **')
+.addField('** -resume** ' , '**استمرار الموسيقى **')
 
-.addField('** *Mnp** ' , ' **لمعرفة الاغنية الحالية**')
+.addField('** -np** ' , ' **لمعرفة الاغنية الحالية**')
         .setColor('RANDOM')    
  message.author.sendEmbed(embed);
  message.react("👌")
