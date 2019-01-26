@@ -11,6 +11,7 @@ const queue = new Map();
 const UserBlocked = new Set();
 const prefix = '-'
 client.on('ready', () => {
+  client.user.setActivity("GMZN Host | -play", {type: 'PLAYING'});
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
   console.log('')
